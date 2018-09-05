@@ -2,22 +2,22 @@
 <html>
 <head>
     {{! Document Settings }}
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
     {{! Page Meta }}
     <title>{{meta_title}}</title>
-    <meta name="description" content="{{meta_description}}" />
+    <meta name="description" content="{{meta_description}}"/>
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     {{! Styles'n'Scripts }}
-    <link rel="stylesheet" type="text/css" href="{{asset "css/base.css"}}" />
-    <link type="text/css" rel="stylesheet" href="{{asset "css/style.css"}}" />
-    <link rel="stylesheet" type="text/css" href="//cdn.css.net/fonts/css?family=Open+Sans:300,400,600,700&subset=latin,latin-ext"/>
-    <link href="//cdn.css.net/libs/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css" rel="stylesheet"/>
-    
+    <link type="text/css" rel="stylesheet" href="{{asset "css/base.css"}}"/>
+    <link type="text/css" rel="stylesheet" href="{{asset "css/style.css"}}"/>
+    <link type="text/css" rel="stylesheet" href="{{asset "css/font.css"}}"/>
+    <link type="text/css" rel="stylesheet" href="{{asset "css/font-awesome.css"}}"/>
+
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
 
@@ -25,12 +25,14 @@
 </head>
 <body>
 
-    {{{body}}}
+{{{body}}}
 
 </div>
 
-    {{! Ghost outputs important scripts and data with this tag }}
-    {{ghost_foot}}
+{{! Ghost outputs important scripts and data with this tag }}
+{{ghost_foot}}
 
+<script src="{{asset "js/jQuery.3.3.min.js"}}"></script>
+<script src="{{asset "js/short.url.js"}}"></script>
 </body>
 </html>

@@ -5,49 +5,76 @@
 
 {{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
-{{#if image_url}}<style>.sidebar{background-image: url({{image_url}});background-color: #fff;background-repeat: no-repeat;background-position: center center;background-size: cover;text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3)!important;color: #fff!important;}.sidebar a,.sidebar p{color: #fff!important;text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);}</style>{{/if}}
-<div class="sidebar animated fadeInDown">
-        <div class="logo-title">
-            <div class="title">{{#if @blog.logo}}<img src="{{@blog.logo}}" style="width:127px;border-radius:50%;" alt="{{@blog.title}}" /></a>{{else}}<img src="//ooo.0o0.ooo/2015/11/19/564d966f0c18c.png" style="width:127px;"/>{{/if}}
-            <h3 title=""><a href="/">{{@blog.title}}</a></h3>
-            <div class="description">
-                <p>{{@blog.description}}</p>
-            </div>
-            </div>
-        </div>
-        <div class="footer">
-            <span>Powered by </span><a href="http://zfeng.net" target="_blank">赵小峰</a>
-            <div class="by_farbox">辽ICP备16013530号</div>
-        </div>
-</div>
-<div class="main">
-    <div class="page-top animated fadeInDown">
-    {{navigation}}
-    </div>
+    {{#if image_url}}
+        <style>
+            .sidebar {
+                background-image: url({{image_url}});
+                background-color: #fff;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+                text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3) !important;
+                color: #fff !important;
+            }
 
-    <div class="autopagerize_page_element">
-        <div class="content">
-            <div class="post-page">
-                <div class="post animated fadeInDown">
-                    <div class="post-title"><h3>{{title}}</h3></div>
-                    <div class="post-content">
-                         {{content}}
-                    </div>
-                
-               		<div class="post-footer">
-                    	<div class="meta">
-                    	    <div class="info"><i class="fa fa-calendar"></i><span class="date">{{date format='YYYY-MM-DD'}}</span></div>
-                  		</div>
-               		</div>
-               		
-               		<div id="pl">
-                    	<div class="ds-thread" data-thread-key="{{slug}}" data-title="{{{title}}}" data-url="{{url absolute="true"}}"></div>
+            .sidebar a, .sidebar p {
+                color: #fff !important;
+                text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+            }
+        </style>
+    {{/if}}
+    <div class="sidebar animated fadeInDown">
+        <div class="logo-title">
+            <div class="title">
+                {{#if @blog.logo}}
+                    <img src="{{@blog.logo}}" style="width:127px;border-radius:50%;" alt="{{@blog.title}}"/>
+                {{else}}
+                    <img src="//ooo.0o0.ooo/2015/11/19/564d966f0c18c.png" style="width:127px;"/>
+                {{/if}}
+                <h3 title=""><a href="/">{{@blog.title}}</a></h3>
+                <div class="description"><p>{{@blog.description}}</p></div>
+            </div>
+        </div>
+        {{> footer}}
+    </div>
+    <div class="main">
+        <div class="page-top animated fadeInDown">{{navigation}}</div>
+        <div class="autopagerize_page_element">
+            <div class="content">
+                <div class="post-page">
+                    <div class="post animated fadeInDown">
+                        {{#equal url "/short-url/"}}
+                            <div class="short-url-content">
+                                <ul class="short-url-tabs">
+                                    <li class="short-url-tab short active" id="url-short-tab">网址缩短</li>
+                                    <li class="short-url-tab rollback" id="url-rollback-tab">网址还原</li>
+                                </ul>
+                                <div class="short-url-wrapper">
+                                    <input type="text" class="short-url-input" id="url-input"/>
+                                    <input type="button" class="short-url-btn" value="缩短网址" id="url-btn"/>
+                                </div>
+                                <div class="short-url-result" id="url-result">
+
+                                </div>
+                            </div>
+                        {{/equal}}
+
+                        <div class="post-title"><h3>{{title}}</h3></div>
+                        <div class="post-content">{{content}}</div>
+
+                        <div class="post-footer">
+                            <div class="meta">
+                                <div class="info">
+                                    <i class="fa fa-calendar"></i>
+                                    <span class="date">{{date format='YYYY-MM-DD'}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{> comment}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-
 {{/post}}

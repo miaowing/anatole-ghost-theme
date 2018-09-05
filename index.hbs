@@ -3,26 +3,28 @@
 
 {{! The big featured header }}
 <div class="sidebar animated fadeInDown">
-      <div class="logo-title">
-        <div class="title">{{#if @blog.logo}}<img src="{{@blog.logo}}" style="width:127px;border-radius:50%;" alt="{{@blog.title}}" /></a>{{else}}<img src="//ooo.0o0.ooo/2015/11/19/564d966f0c18c.png" style="width:127px;"/>{{/if}}
-          <h3 title=""><a href="/">{{@blog.title}}</a></h3>
-          <div class="description">
-            <p>{{@blog.description}}</p>
-          </div>
+    <div class="logo-title">
+        <div class="title">
+            {{#if @blog.logo}}
+                <img src="{{@blog.logo}}" style="width:127px;border-radius:50%;" alt="{{@blog.title}}"/>
+            {{else}}
+                <img src="//ooo.0o0.ooo/2015/11/19/564d966f0c18c.png" style="width:127px;"/>
+            {{/if}}
+            <h3 title=""><a href="/">{{@blog.title}}</a></h3>
+            <div class="description">
+                <p>{{@blog.description}}</p>
+            </div>
         </div>
-      </div>
-      <div class="footer">
-            <span>Powered by </span><a href="http://zfeng.net" target="_blank">赵小峰</a>
-            <div class="by_farbox">辽ICP备16013530号</div>
-      </div>
+    </div>
+    {{> footer}}
 </div>
 
 {{! The main content area on the homepage }}
 <div class="main">
     <div class="page-top animated fadeInDown">
-    {{navigation}}
+        {{navigation}}
     </div>
     {{! The tag below includes the post loop - partials/loop.hbs }}
     {{> "loop"}}
-    </div>
+</div>
 </div>
