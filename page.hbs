@@ -43,7 +43,7 @@
             <div class="content">
                 <div class="post-page">
                     <div class="post animated fadeInDown">
-                        {{#equal url "/short-url/"}}
+                        {{#has tag="short-url"}}
                             <div class="short-url-content">
                                 <ul class="short-url-tabs">
                                     <li class="short-url-tab short active" id="url-short-tab">网址缩短</li>
@@ -57,7 +57,7 @@
 
                                 </div>
                             </div>
-                        {{/equal}}
+                        {{/has}}
 
                         <div class="post-title"><h3>{{title}}</h3></div>
                         <div class="post-content">{{content}}</div>
